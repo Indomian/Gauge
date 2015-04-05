@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page for testing gauge</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/gauge.jquery.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/index.html">jQuery Demo</a></li>
+                <li><a href="/native.html">Native demo</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <h1>Test for gauge element</h1>
+            <div data-role="gauge">35</div>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('[data-role=gauge]').gauge({});
+            });
+        </script>
+    </body>
+</html>

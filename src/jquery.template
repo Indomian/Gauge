@@ -1,0 +1,14 @@
+(function( $ ) {
+  #CLASS#
+  
+  $.fn.gauge = function() {
+    var options=arguments[0] || {};
+
+    this.each(function() {
+      var container=$(this);
+      Gauge(container[0],options);
+    });
+
+    return this;
+  };
+}( jQuery ));

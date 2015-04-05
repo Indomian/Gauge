@@ -1,0 +1,27 @@
+{
+  "name": "gauge-test-indomian",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Indomian/Gauge",
+  "description": "Test project with Guage web component.",
+  "keywords": [
+    "guage",
+    "web"
+  ],
+  "authors": [
+    "Egor Bolgov <blade39@yandex.ru>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  },
+  "devDependencies": {
+    "grunt": "0.4.2"
+  }
+}

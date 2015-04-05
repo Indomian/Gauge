@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page for testing gauge</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a href="/index.html">jQuery Demo</a></li>
+        <li class="active"><a href="/native.html">Native demo</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <h1>Test for gauge element</h1>
+    <div id="gauge">35</div>
+</div>
+<script type="text/javascript" src="/js/gauge.js"></script>
+<script type="text/javascript">
+    var gauge1=new Gauge(document.getElementById('gauge'),{});
+</script>
+</body>
+</html>
