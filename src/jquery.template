@@ -1,12 +1,23 @@
 (function( $ ) {
   #CLASS#
-  
+
+  var gaugeList=[];
+
   $.fn.gauge = function() {
     var options=arguments[0] || {};
+    var parameters=arguments[1] || undefined;
 
     this.each(function() {
       var container=$(this);
-      Gauge(container[0],options);
+      if(container.attr('data-gauge-id')!=undefined) {
+        var index=parseInt(container.attr('data-gauge-id'),10);
+        if(gaugeList[index].hasOwnProperty(options) && typeof(gaugeList[index][options])==='function') {
+          gaugeList[index][options](parameters);
+        }
+      } else {
+        gaugeList.push(new Gauge(container[0],options));
+        container.attr('data-gauge-id',gaugeList.length-1);
+      }
     });
 
     return this;

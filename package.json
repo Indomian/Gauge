@@ -1,6 +1,6 @@
 {
   "name": "gauge-test-indomian",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Test project with Guage web component.",
   "main": "src/gauge.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "devDependencies": {
     "grunt": "0.4.2",
     "grunt-contrib-uglify": "~0.8.1",
-    "grunt-contrib-copy": "~0.8.0"
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-less": "~1.0.0"
   }
 }

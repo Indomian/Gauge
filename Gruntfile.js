@@ -35,7 +35,10 @@ module.exports = function(grunt) {
           },{
             src: 'build/<%= pkg.name %>-<%= pkg.version %>.jquery.min.js',
             dest: 'public/js/gauge.jquery.js'
-        }]
+          },{
+            src: 'build/gauge.css',
+            dest: 'public/css/gauge.css'
+          }]
       },
       debug: {
         files: [{
@@ -47,6 +50,23 @@ module.exports = function(grunt) {
         },{
           src: 'build/<%= pkg.name %>-<%= pkg.version %>.jquery.js',
           dest: 'public/js/gauge.jquery.js'
+        },{
+          src: 'build/gauge.css',
+          dest: 'public/css/gauge.css'
+        }]
+      }
+    },
+    less: {
+      debug: {
+        files: [{
+          src:'src/gauge.less',
+          dest: 'build/gauge.css'
+        }]
+      },
+      build: {
+        files: [{
+          src:'src/gauge.less',
+          dest: 'build/gauge.css'
         }]
       }
     }
@@ -54,11 +74,12 @@ module.exports = function(grunt) {
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['copy:jquery','uglify','copy']);
-  grunt.registerTask('debug', ['copy:jquery','copy:debug']);
+  grunt.registerTask('default', ['copy:jquery','uglify', 'less','copy']);
+  grunt.registerTask('debug', ['copy:jquery','less:debug','copy:debug']);
 
   function createJQueryPlugin(content,srcpath) {
     var template=grunt.file.read('src/jquery.template');
