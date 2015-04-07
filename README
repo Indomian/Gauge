@@ -43,3 +43,7 @@ svg.gauge g.gauge-group path.gauge-sector - оформление сектора 
 svg.gauge g.gauge-group path.gauge-sector-<n> - оформление n-го сектора шкалы
 
 svg.gauge g.gauge-arrow - оформление стрелки
+
+== Примеры ==
+
+Все примеры расположены в каталоге public
