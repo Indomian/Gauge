@@ -1,6 +1,6 @@
 {
   "name": "gauge-test-indomian",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/Indomian/Gauge",
   "description": "Test project with Guage web component.",
   "keywords": [

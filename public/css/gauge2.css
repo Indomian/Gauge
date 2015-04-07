@@ -3,19 +3,20 @@
 }
 svg.gauge g.gauge-group path {
   fill: none;
-  stroke: black;
-  stroke-width: 3;
+  stroke: #666;
+  stroke-width: 2;
 }
 svg.gauge g.gauge-group path.gauge-line {
   fill: none;
-  stroke: black;
+  stroke: #666;
   stroke-width: 3;
 }
 svg.gauge g.gauge-group path.gauge-sector {
-  stroke: red;
+  stroke: #ffa500;
+  stroke-width: 3;
 }
 svg.gauge g.gauge-group path.gauge-sector-1 {
-  stroke: blue;
+  stroke: red;
 }
 svg.gauge g.gauge-arrow {
   stroke: #1e98e4;

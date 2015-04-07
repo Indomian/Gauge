@@ -12,18 +12,15 @@ function Gauge(object, config) {
     ticksLabelRadius:230,
     arrowAxisRadius:20,
     arrowRadius:190,
-    sectors:[{
-      startAngle:225,
-      endAngle:-45
-    }]
+    sectors:[]
   },config);
 
   var C_PI=Math.PI/180,
     svg=document.createElementNS("http://www.w3.org/2000/svg", "svg"),
     svgNS=svg.namespaceURI,
     objectContent=object.innerHTML,
-    width=(config.radius+config.padding)* 2,
-    height=(config.radius+config.padding)* 2,
+    width=(Math.max(config.radius,config.ticksRadius,config.ticksLabelRadius,config.arrowRadius)+config.padding)* 2,
+    height=width,
     element=document.createElement('DIV'),
     center={
       x:width/2,
@@ -74,6 +71,14 @@ function Gauge(object, config) {
         this.ticks[i].labelNode.setAttribute('dy',box.height/3);
         this.ticks[i].labelNode.setAttribute('style','');
       }
+
+      //Render sectors
+      if(config.sectors.length>0) {
+        for(i=0;i<config.sectors.length;i++) {
+          arcPath=createArcPath(config.radius,config.sectors[i].startAngle,config.sectors[i].endAngle,this.group);
+          arcPath.setAttribute('class','gauge-sector gauge-sector-'+i);
+        }
+      }
     }
   };
 
@@ -109,7 +114,7 @@ function Gauge(object, config) {
     }
     if(source instanceof Array) {
       for(i=0;i<source.length;i++) {
-        if(source[i] instanceof String) {
+        if(typeof(source[i])==='string') {
           result.push({
             value:i,
             label:source[i]
@@ -143,15 +148,15 @@ function Gauge(object, config) {
 
   /* ===================== LIBRARY =========================*/
 
-  function extend(dest,options) {
+  function extend(source,options) {
     var i;
 
     for(i in options) {
       if(options.hasOwnProperty(i) && options[i]!=null) {
-        dest[i]=options[i];
+        source[i]=options[i];
       }
     }
-    return dest;
+    return source;
   }
 
   function createPoint(x,y,r,appendTo) {
@@ -174,7 +179,7 @@ function Gauge(object, config) {
         y:Math.sin(b*C_PI)*r
       },
       arc=document.createElementNS(svgNS,'path');
-    arc.setAttribute('d','M'+s.x+','+s.y+' A'+r+','+r+' 0 '+(b-a>0?1:0)+',1 '+e.x+','+ e.y);
+    arc.setAttribute('d','M'+s.x+','+s.y+' A'+r+','+r+' 0 '+(b-a>180?1:0)+',1 '+e.x+','+ e.y);
     if(appendTo!=undefined) {
       appendTo.appendChild(arc);
     }

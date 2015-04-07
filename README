@@ -9,3 +9,37 @@
 
 Для установки достаточно использовать Grunt, bower, npm.
 
+== Настройки ==
+
+radius - радиус шкалы
+padding - отступ от радиуса шкалы до границы холста
+minValue - минимальное значение шкалы
+maxValue - максимальное значение шкалы
+startAngle - начальный угол шкалы
+endAngle - конечный угол шкалы
+ticks - количество меток, если массив строк - значения меток
+ticksRadius - радиус отсечек меток
+ticksLength - длина меток
+ticksLabelRadius - радиус подписей меток
+arrowAxisRadius - радиус центра стрелки
+arrowRadius - длина стрелки
+sectors - массив секторов шкалы. Каждый элемент содержит объект:
+    startAngle - начало сектора
+    endAngle - конец сектора
+
+== Оформление ==
+
+.gauge-hide - класс для скрытия исходного объекта
+
+svg.gauge - класс оформления холста
+
+svg.gauge g.gauge-group - группа отрисовки шкалы
+
+svg.gauge g.gauge-group path.gauge-line - непосредственно оформление шкалы
+
+svg.gauge g.gauge-group path.gauge-sector - оформление сектора шкалы
+  stroke: red;
+
+svg.gauge g.gauge-group path.gauge-sector-<n> - оформление n-го сектора шкалы
+
+svg.gauge g.gauge-arrow - оформление стрелки
